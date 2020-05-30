@@ -8,13 +8,22 @@ function App() {
 
   const exampleReq=`https://api.edamam.com/search?q=chicken&app_id=${APP_ID}&app_key=${APP_KEY}`;
 
-  const [count, setCount]=useState(0);
+  const [recipes,setRecipes]=useState([]);
+
 
   useEffect(()=>{
-    console.log("Use effect has been run");
+    getRecipes();
     
-  })
+  },[])
 
+  const getRecipes = async()=>{
+
+    const res=await fetch(exampleReq);
+    const data=await res.json();
+
+    setRecipes(data.hits);
+
+  }
 
 
 
@@ -25,7 +34,7 @@ function App() {
         <input type="text" className="search-bar"/>
         <button type="submit" className="search-btn">Search ...</button>
       </form>
-      <h1 onClick={()=>setCount(count+1)} >{count}</h1>
+      
     </div>
   );
 }
