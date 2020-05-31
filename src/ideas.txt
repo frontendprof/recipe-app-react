@@ -1,0 +1,8 @@
+
+
+
+
+// horizontal lines after each data fetch. <hr />
+
+
+// make search bar with search btn disapper after fetching data.

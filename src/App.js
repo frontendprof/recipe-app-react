@@ -53,14 +53,24 @@ function App() {
         <input type="text" className="search-bar" value={search} onChange={updateSearch}/>
         <button type="submit" className="search-btn">Search ...</button>
       </form>
-     {recipes.map(rec=>(
-       <Recipe  
-       key={uuidv4()}
-       title={rec.recipe.label} 
-       calories={rec.recipe.calories}
-       image={rec.recipe.image}
-       />
-     ))} 
+
+      <div className="recipes">
+
+        {recipes.map(rec=>(
+        <Recipe  
+        key={uuidv4()}
+        title={rec.recipe.label} 
+        calories={rec.recipe.calories}
+        image={rec.recipe.image}
+        ingred={rec.recipe.ingredients}
+        />
+       
+        ))}
+
+      </div>
+    
+     
+    
     </div>
   );
 }
